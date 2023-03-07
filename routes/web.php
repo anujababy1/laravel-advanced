@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Postcard;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +22,13 @@ Route::get('/payment','App\Http\Controllers\PaymentGatewayController@index');
 
 Route::get('/channels','App\Http\Controllers\ChannelController@index');
 Route::get('/posts/create','App\Http\Controllers\PostController@create');
+
+Route::get('/facades',function(){
+
+    // $a = new App\PostcardSendingService('us',1,2);
+    // $a->hello('hai a','a@gmail.com');
+    
+    Postcard::hello('hai anuja','anuja@gmail.com');
+    
+});
 

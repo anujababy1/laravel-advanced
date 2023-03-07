@@ -9,6 +9,7 @@ use App\billing\CreditPaymentGateway;
 use Illuminate\Support\Facades\View;
 use App\Models\Channel;
 use App\Http\View\Composers\ChannelComposer;
+use App\PostcardSendingService;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -44,5 +45,11 @@ class AppServiceProvider extends ServiceProvider
         
          /* channels variabl will avialble in channels folder & posts.create blade */
         View::composer(['channels.*','posts.create'],ChannelComposer::class);
+
+
+        $this->app->singleton('Postcard',function($app){
+                return new PostcardSendingService('us',4,6);
+            
+        });
     }
 }
