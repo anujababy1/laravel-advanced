@@ -19,3 +19,6 @@ Route::get('/', function () {
 
 Route::get('/payment','App\Http\Controllers\PaymentGatewayController@index');
 
+Route::get('/channels','App\Http\Controllers\ChannelController@index');
+Route::get('/posts/create','App\Http\Controllers\PostController@create');
+
