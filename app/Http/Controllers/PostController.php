@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Video;
+use App\Models\Tag;
 
 
 class PostController extends Controller
@@ -41,11 +42,33 @@ class PostController extends Controller
         // ]);
         // dd($post->comments);
 
-        $video = Video::first(); 
-        $video->comments()->create([
-            'comment'=>'ppppp'
-        ]);
-        dd($video->comments);
+        // $video = Video::first(); 
+        // $video->comments()->create([
+        //     'comment'=>'ppppp'
+        // ]);
+        // dd($video->comments);
+
+
+        // Many To Many (Polymorphic)
+        
+        // $post = Post::first();
+        // $post->tags()->create([
+        //     'title'=>'tag1'
+        // ]);
+
+        // $video = video::first();
+        // $video->tags()->create([
+        //     'title'=>'tag1'
+        // ]);
+
+        // $tag = Tag::first();
+        // $tag->posts()->create([
+        //     'title'=>'jjjjki'
+        // ]);
+
+        $video = video::first();
+        $video->tags()->attach([2,3]);
+        
     }
     
 }
