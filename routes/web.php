@@ -36,7 +36,15 @@ Route::get('/macro',function(){
     
     dd(Str::formatPhoneNumber('4375993359'));
 
-   
     
 });
+
+
+// NOTE: FOR DEMO ALL ROUTE ARE CRAETE AS GET
+
+Route::get('/customers','App\Http\Controllers\CustomerController@index');
+Route::get('/customers/store','App\Http\Controllers\CustomerController@store');
+Route::get('/customers/{customer}','App\Http\Controllers\CustomerController@view');
+Route::get('/customers/{customer}/update','App\Http\Controllers\CustomerController@update');
+Route::get('/customers/{customer}/delete','App\Http\Controllers\CustomerController@destroy');
 
