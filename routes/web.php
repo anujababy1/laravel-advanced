@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Postcard;
-
+use Illuminate\Support\Str;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,6 +29,14 @@ Route::get('/facades',function(){
     // $a->hello('hai a','a@gmail.com');
     
     Postcard::hello('hai anuja','anuja@gmail.com');
+    
+});
+
+Route::get('/macro',function(){
+    
+    dd(Str::formatPhoneNumber('4375993359'));
+
+   
     
 });
 

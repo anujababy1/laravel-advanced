@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\View;
 use App\Models\Channel;
 use App\Http\View\Composers\ChannelComposer;
 use App\PostcardSendingService;
+use Illuminate\Support\Str;
+use App\Mixins\StrMixins;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -51,5 +53,12 @@ class AppServiceProvider extends ServiceProvider
                 return new PostcardSendingService('us',4,6);
             
         });
+
+        /* macro */
+        Str::macro('formatPhoneNumber',function($number){
+            return '+1 ('.substr($number,0,3).')-'.substr($number,3,3).'-'.substr($number,6);
+        });
+
+        Str::Mixin(new StrMixins(),false);
     }
 }
