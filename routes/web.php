@@ -6,6 +6,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Collection;
 use Illuminate\Support\LazyCollection;
 use App\Models\Post;
+use App\Models\Job;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -71,3 +72,20 @@ Route::get('/lazy', function(){
     return 'DONE';
 });
 
+Route::get('/jobs',function(){
+    // $job = Job::create([
+    //     'title'=> "Laravel Developer"
+    // ]);
+    //  echo $job;
+
+    //  $job->delete(); /* soft delete the row */
+    //  $job->restore(); /* to restore the  deleted record */
+        
+    // $all_jobs = Job::get();  /* to get the soft deleted job also*/
+    // echo $all_jobs;
+
+    //  $all_jobs = Job::withTrashed()->get();  /* to get the soft deleted job also*/
+    //  echo $all_jobs;
+
+    Job::where('id',1)->forceDelete();  /* force delete the record */
+});
