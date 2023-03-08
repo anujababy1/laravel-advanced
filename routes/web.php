@@ -89,3 +89,11 @@ Route::get('/jobs',function(){
 
     Job::where('id',1)->forceDelete();  /* force delete the record */
 });
+
+Route::get('/notification',function(){
+
+    $user = \App\Models\User::first();
+    $user->notify(new \App\Notifications\InvoicePaid());
+    $user->notifications()->first()->markAsRead();
+    
+});
